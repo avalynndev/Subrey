@@ -1,25 +1,24 @@
-const colors = require("colors");
-const { Client, Collection } = require('discord.js'); 
-const Topgg = require('@top-gg/sdk')
-require('dotenv').config();
-
+const {
+  Client,
+  GatewayIntentBits,
+  Partials,
+  Collection,
+} = require("discord.js");
+const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
+const { User, Message, GuildMember, ThreadMember } = Partials;
 const client = new Client({
-	intents: 32767,
+  intents: 32767,
   presence: {
     activities: [{ name: "/help", type: "PLAYING" }],
-    status: "dnd"
+    status: "dnd",
   },
 });
 
-// client.votecmd = new Topgg.Api("TOP_GG API")
-client.config = require('./botconfig/config.json');
-client.slashcommands = new Collection();
+const { loadEvents } = require("./Handlers/eventHandler");
 
-client.setMaxListeners(0);
-require('events').defaultMaxListeners = 0;
+client.config = require("./config.json");
+client.events = new Collection();
 
-['events', 'slashcommands'].forEach(handler => {
-	require(`./handlers/${handler}`)(client);
-});
+loadEvents(client);
 
-client.login(process.env.TOKEN);
+client.login(client.config.token);

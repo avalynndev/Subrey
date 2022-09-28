@@ -1,17 +1,7 @@
 {
-  "dependencies": {
-    "@top-gg/sdk": "^3.1.3",
-    "ascii-table": "^0.0.9",
-    "colors": "^1.4.0",
-    "discord.js": "^14.3.0",
-    "dotenv": "^16.0.2",
-    "express": "^4.18.1",
-    "plexus-djs14": "^1.0.8-beta",
-    "wyr": "^1.1.1"
-  },
   "name": "aubrey",
-  "description": "Official src code of Aubrey discord bot.",
   "version": "1.0.0",
+  "description": "Official src code of Aubrey discord bot.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,10 +10,16 @@
     "type": "git",
     "url": "git+https://github.com/MatrixByte/Aubrey.git"
   },
-  "author": "avalynn",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MatrixByte/Aubrey/issues"
   },
-  "homepage": "https://github.com/MatrixByte/Aubrey#readme"
+  "homepage": "https://github.com/MatrixByte/Aubrey#readme",
+  "dependencies": {
+    "ascii-table": "^0.0.9",
+    "discord.js": "^14.5.0",
+    "glob": "^8.0.3"
+  }
 }
