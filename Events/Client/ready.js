@@ -1,9 +1,11 @@
-const client = require(`../../index`);
+const { loadCommands } = require("../../Handlers/commandHandler");
 
 module.exports = {
   name: "ready",
   once: true,
-  execute() {
-    console.log(`Bot is Online ✅`);
+  execute(client) {
+    console.log(`${client.user.username} is Online ✅`);
+
+    loadCommands(client);
   },
 };
