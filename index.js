@@ -18,7 +18,11 @@ const { loadEvents } = require("./Handlers/eventHandler");
 
 client.config = require("./config.json");
 client.events = new Collection();
+client.subCommands = new Collection();
 client.commands = new Collection();
+
+const { connect } = require("mongoose");
+connect(client.config.DatabaseURL, {}).then(() => console.log("Database ✅"));
 
 loadEvents(client);
 

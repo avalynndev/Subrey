@@ -1,3 +1,4 @@
 {
-  "token": "MTAyNDU5ODY3MTIxNzY3MjIyMg.GQTedf.tKNnlPtjVi5aedBZ9qJLadPnt062C9gLvVbaWA"
+  "token": "MTAyNDU5ODY3MTIxNzY3MjIyMg.GQTedf.tKNnlPtjVi5aedBZ9qJLadPnt062C9gLvVbaWA",
+  "DatabaseURL": "mongodb+srv://aubrey:DEseWLpf26A3G5eQ@aubrey.kn5teax.mongodb.net/?retryWrites=true&w=majority"
 }

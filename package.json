@@ -19,7 +19,10 @@
   "homepage": "https://github.com/MatrixByte/Aubrey#readme",
   "dependencies": {
     "ascii-table": "^0.0.9",
+    "canvacord": "^5.4.8",
     "discord.js": "^14.5.0",
-    "glob": "^8.0.3"
+    "glob": "^8.0.3",
+    "mongoose": "^6.6.4",
+    "wyr": "^1.1.1"
   }
 }
