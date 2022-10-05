@@ -4,7 +4,6 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("util")
     .setDescription("utility commands")
-    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addSubcommand((options) =>
       options.setName("calc").setDescription("learn about my commands")
     )
