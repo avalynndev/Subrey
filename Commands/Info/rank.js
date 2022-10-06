@@ -13,6 +13,11 @@ module.exports = {
         .setDescription("Target @member")
         .setRequired(false)
     ),
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   *
+   */
   async execute(interaction) {
     const member =
       interaction.options.getMember("member") || interaction.member;

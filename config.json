@@ -1,4 +1,6 @@
 {
   "token": "MTAyNDU5ODY3MTIxNzY3MjIyMg.GQTedf.tKNnlPtjVi5aedBZ9qJLadPnt062C9gLvVbaWA",
-  "DatabaseURL": "mongodb+srv://aubrey:DEseWLpf26A3G5eQ@aubrey.kn5teax.mongodb.net/?retryWrites=true&w=majority"
+  "DatabaseURL": "mongodb+srv://aubrey:DEseWLpf26A3G5eQ@aubrey.kn5teax.mongodb.net/?retryWrites=true&w=majority",
+  "spotify_ID": "7343d7fc0efc4480a0db879a34600c08",
+  "spotify_secret": "0cb91c79b53b4c7b98a5c2a3b3936fc2"
 }

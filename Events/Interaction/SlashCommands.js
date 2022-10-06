@@ -23,6 +23,10 @@ module.exports = {
         ephemeral: true,
       });
 
+    if (interaction.isSelectMenu()) {
+      await interaction.deferUpdate();
+    }
+
     const subCommand = interaction.options.getSubcommand(false);
     if (subCommand) {
       const subCommandFile = client.subCommands.get(

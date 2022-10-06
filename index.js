@@ -7,6 +7,11 @@ const {
 const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 const { Manager, db } = require("quick.eco");
+const { DisTube } = require("distube");
+const { YtDlpPlugin } = require("@distube/yt-dlp");
+const { SpotifyPlugin } = require("@distube/spotify");
+const { SoundCloudPlugin } = require("@distube/soundcloud");
+
 const client = new Client({
   intents: 32767,
   presence: {
@@ -16,6 +21,26 @@ const client = new Client({
 });
 
 const { loadEvents } = require("./Handlers/eventHandler");
+
+let spotifyoptions = {
+  parallel: true,
+  emitEventsAfterFetching: true,
+  api: {
+    clientId: client.config.spotify_ID,
+    clientSecret: client.config.spotify_secret,
+  },
+};
+client.distube = new DisTube(client, {
+  emitNewSongOnly: true,
+  leaveOnFinish: true,
+  emitAddSongWhenCreatingQueue: false,
+  youtubeDL: false,
+  plugins: [
+    new YtDlpPlugin(),
+    new SpotifyPlugin(spotifyoptions),
+    new SoundCloudPlugin(),
+  ],
+});
 
 client.eco = new Manager();
 client.db = db;
