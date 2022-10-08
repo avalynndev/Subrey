@@ -85,7 +85,7 @@ client.distube
   .on("finish", (queue) =>
     queue.textChannel.send({
       embeds: [
-        new MessageEmbed()
+        new EmbedBuilder()
           .setDescription(`📀 | Music Queue has just ended`)
           .setColor("Random"),
       ],
