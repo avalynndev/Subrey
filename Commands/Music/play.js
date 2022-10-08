@@ -19,7 +19,11 @@ module.exports = {
    * @param {ChatInputCommandInteraction} interaction
    *
    */
-  async execute(interaction) {
+  async execute(interaction, client) {
+    const voice_channel_id = interaction.guild.members.cache.get(
+      interaction.member.user.id
+    ).voice.channelId;
+
     const VoiceChannel = interaction.member.voice.channel;
     const music = interaction.options.getString("song");
 
@@ -37,14 +41,9 @@ module.exports = {
       return interaction.reply({ embeds: [embed_1] }).catch((e) => {});
 
     let embed_2 = new EmbedBuilder()
-      .setDescription(
-        `\`❌\` | I am being used in <#${interaction.guild.me.voice.channelId}>!`
-      )
+      .setDescription(`\`❌\` | I am being used in <#${voice_channel_id}>!`)
       .setColor("Random");
-    if (
-      interaction.guild.me.voice.channelId &&
-      VoiceChannel.id !== interaction.guild.me.voice.channelId
-    )
+    if (voice_channel_id && VoiceChannel.id !== voice_channel_id)
       return interaction.reply({ embeds: [embed_2] }).catch((e) => {});
 
     try {

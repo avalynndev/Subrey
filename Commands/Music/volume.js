@@ -19,13 +19,13 @@ module.exports = {
    * @param {ChatInputCommandInteraction} interaction
    *
    */
-  async execute(interaction) {
+  async execute(interaction, client) {
     const VoiceChannel = interaction.member.voice.channel;
     const Volume = interaction.options.getNumber("number");
 
     let embed_1 = new EmbedBuilder()
       .setDescription(
-        "`❌` | You have to be in a voice channel in order to listen music."
+        "`❌` | You have to be in a voice channel in order to use this command."
       )
       .setColor("Random");
     if (!VoiceChannel)

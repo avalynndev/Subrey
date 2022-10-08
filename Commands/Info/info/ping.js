@@ -16,9 +16,7 @@ module.exports = {
       .setDescription("`Pinging...`")
       .setColor("Red");
     const msg = await interaction.reply({ embeds: [embed] });
-    const timestamp = interaction.editedTimestamp
-      ? interaction.editedTimestamp
-      : interaction.createdTimestamp;
+    const timestamp = interaction.createdTimestamp;
     const latency = `  ${Math.floor(msg.createdTimestamp - timestamp)} ms`;
     const apiLatency = `  ${interaction.client.ws.ping - 19} ms`;
     embed
