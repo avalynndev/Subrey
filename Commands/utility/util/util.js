@@ -8,9 +8,6 @@ module.exports = {
       options.setName("calc").setDescription("learn about my commands")
     )
     .addSubcommand((options) =>
-      options.setName("embed").setDescription("create a embed")
-    )
-    .addSubcommand((options) =>
       options
         .setName("qrcode")
         .setDescription("generate a qrcode with a link")
