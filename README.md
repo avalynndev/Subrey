@@ -4,7 +4,7 @@
   <br>
   <a href="https://github.com/avalynndev"><img src="strange.png" height="200" alt="Discord.js v14 Bot"></a>
   <br>
-  Discord.js v14 Bot
+  Aubrey
   <br>
 </h1>
 
@@ -18,24 +18,20 @@
   <a href="#-prerequisites">Prerequisites</a>
   •
   <a href="#-getting-started">Getting Started</a>
-  •
-  <a href="#-features">Features</a>
-  •
-  <a href="#-contributing">Contributing</a>
 </p>
 
 <br>
 
 ## 🔗 Resource Links
 
-- 🤖 Demo Bot: [Invite Here](https://discord.com/oauth2/authorize?client_id=1013236808353599488&permissions=397602323830&scope=bot%20applications.commands)
-- 🤝 Support Server: [Join Here](https://discord.gg/2gPy75zgbW)
-- 📂 Documentation URL: [Visit Here](https://docs.strangebot.xyz)
-- 🐳 Docker Image: [Hub](https://hub.docker.com/r/saitejamadha/discord-js-bot)
+- 🤖 Official Bot: [Invite Here](https://discord.com/oauth2/authorize?client_id=1013236808353599488&permissions=397602323830&scope=bot%20applications.commands)
+- 🤝 Support Server: [Join Here](https://dsc.gg/matrixbyte)
+- 📂 Documentation URL: [Visit Here]() (COMING SOON)
+- 🐳 Docker Image: [Hub]() (COMING SOON)
 
 ## 📦 Prerequisites
 
-- [Node.js](https://nodejs.org/en/) v16.9.0 or higher
+- [Node.js](https://nodejs.org/en/) v16.0.0 or higher
 - [Git](https://git-scm.com/downloads)
 - [MongoDB](https://www.mongodb.com)
 
