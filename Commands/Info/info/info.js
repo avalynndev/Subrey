@@ -6,9 +6,6 @@ module.exports = {
     .setDescription("information related commands")
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addSubcommand((options) =>
-      options.setName("help").setDescription("learn about my commands")
-    )
-    .addSubcommand((options) =>
       options.setName("ping").setDescription("check your ping")
     )
     .addSubcommand((options) =>
