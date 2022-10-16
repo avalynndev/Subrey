@@ -1,4 +1,3 @@
-const chalk = require("chalk");
 const {
   Client,
   CommandInteraction,

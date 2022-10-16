@@ -5,7 +5,7 @@ const {
   ChatInputCommandInteraction,
   EmbedBuilder,
 } = require("discord.js");
-const joinSchema = require("../../schemas/joinSchema");
+const joinSchema = require("../../../Schemas/joinSchema");
 const mongoose = require("mongoose");
 
 module.exports = {
