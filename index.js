@@ -164,4 +164,4 @@ client.distube
     })
   );
 
-client.login(client.config.token);
+client.login(process.env.Token);
