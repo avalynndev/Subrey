@@ -36,6 +36,7 @@
     "ms": "^2.1.3",
     "plexus-djs14": "^1.0.9-beta",
     "quick.eco": "^2.0.3",
+    "randomized-string": "^1.2.7",
     "wyr": "^1.1.1"
   }
 }
