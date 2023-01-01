@@ -8,17 +8,6 @@ module.exports = {
       options.setName("calc").setDescription("learn about my commands")
     )
     .addSubcommand((options) =>
-      options
-        .setName("qrcode")
-        .setDescription("generate a qrcode with a link")
-        .addStringOption((option) =>
-          option
-            .setName("link")
-            .setDescription("the Link to generate a qr code from")
-            .setRequired(true)
-        )
-    )
-    .addSubcommand((options) =>
       options.setName("quotes").setDescription("want a motivation ? use me")
     )
     .addSubcommand((options) =>

@@ -3,7 +3,7 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
 } = require("discord.js");
-const plexus = require("plexus-djs14");
+const simply = require("simply-djs");
 
 module.exports = {
   subCommand: "util.calc",
@@ -13,7 +13,7 @@ module.exports = {
    *
    */
   async execute(interaction, client) {
-    plexus.calculator(interaction, {
+    simply.calculator(interaction, {
       slash: true,
       embedFoot: "©️ MatrixByte | Calculator",
     });

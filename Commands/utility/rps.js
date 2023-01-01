@@ -4,12 +4,12 @@ const {
   EmbedBuilder,
 } = require("discord.js");
 
-const plexus = require("plexus-djs14");
+const simply = require("simply-djs");
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("rps")
-    .setDescription("the help command")
+    .setDescription("the rps command")
     .addUserOption((option) =>
       option.setName("user").setDescription("Target @member").setRequired(false)
     ),
@@ -19,6 +19,6 @@ module.exports = {
    *
    */
   async execute(interaction, client) {
-    plexus.rps(interaction, {});
+    simply.rps(interaction, {});
   },
 };
