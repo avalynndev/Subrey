@@ -1,22 +1,22 @@
 {
-  "name": "aubrey",
+  "name": "subrey",
   "version": "1.0.0",
-  "description": "Official src code of Aubrey discord bot.",
+  "description": "Official src code of Subrey discord bot.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MatrixByte/Aubrey.git"
+    "url": "git+https://github.com/MatrixByte/Subrey.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MatrixByte/Aubrey/issues"
+    "url": "https://github.com/MatrixByte/Subrey/issues"
   },
-  "homepage": "https://github.com/MatrixByte/Aubrey#readme",
+  "homepage": "https://github.com/MatrixByte/Subrey#readme",
   "dependencies": {
     "@discordjs/opus": "^0.8.0",
     "@distube/soundcloud": "^1.2.2",
@@ -24,18 +24,20 @@
     "@distube/yt-dlp": "^1.1.3",
     "@yimura/scraper": "^1.2.3",
     "ascii-table": "^0.0.9",
+    "axios": "^1.3.3",
     "canvacord": "^5.4.8",
     "discord-html-transcripts": "^3.1.0",
     "discord.js": "^14.6.0",
     "distube": "^4.0.4",
     "ffmpeg-static": "^4.4.1",
+    "formidable": "^2.1.1",
     "glob": "^8.0.3",
     "libsodium-wrappers": "^0.7.10",
     "mongoose": "^6.6.4",
     "ms": "^2.1.3",
-    "quick.eco": "^2.0.3",
     "randomized-string": "^1.2.7",
     "simply-djs": "^3.0.2",
+    "superagent": "^7.0.2",
     "wyr": "^1.1.1"
   }
 }

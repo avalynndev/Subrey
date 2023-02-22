@@ -33,7 +33,7 @@ module.exports = {
           `
   • Prefix of this bot is \`/\`
   • Total commands: \`24\`
-  • [Get Aubrey](https://discord.com/api/oauth2/authorize?client_id=973136576014057482&permissions=8&scope=bot%20applications.commands) | [Support Server](https://discord.gg/HHkuFTy4r4) 
+  • [Get Subrey](https://discord.com/api/oauth2/authorize?client_id=973136576014057482&permissions=8&scope=bot%20applications.commands) | [Support Server](https://discord.gg/HHkuFTy4r4) 
   `
         )
         .addFields(

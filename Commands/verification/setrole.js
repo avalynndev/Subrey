@@ -5,7 +5,7 @@ const {
   CommandInteractionOptionResolver,
 } = require("discord.js");
 
-const roleSchema = require("../../schemas/verifyRoleId");
+const roleSchema = require("../../Schemas/verifyRoleID");
 const mongoose = require("mongoose");
 
 module.exports = {

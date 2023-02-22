@@ -4,7 +4,7 @@ const {
   EmbedBuilder,
 } = require("discord.js");
 const { default: mongoose } = require("mongoose");
-const leaveSchema = require("../../schemas/leaveSchema");
+const leaveSchema = require("../../Schemas/leaveSchema");
 
 module.exports = {
   name: "guildMemberRemove",

@@ -3,6 +3,8 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
 } = require("discord.js");
+const ms = require("ms");
+const schema = require("../../../Schemas/currencySchema");
 
 module.exports = {
   subCommand: "eco.weekly",
@@ -12,24 +14,50 @@ module.exports = {
    *
    */
   async execute(interaction, client) {
-    let personalBal = interaction.member.user.id;
-    let amount = Math.floor(Math.random() * 1000) + 500;
-    let addMoney = client.eco.weekly(personalBal, amount);
-    if (addMoney.onCooldown)
-      return interaction.reply({
-        embeds: [
-          new EmbedBuilder().setDescription(
-            `You have already claimed your weekly credit. Come back after ${addMoney.time.days} days, ${addMoney.time.hours} hours, ${addMoney.time.minutes} minutes & ${addMoney.time.seconds} seconds to claim it again.`
-          ),
-        ],
+    let amount = Math.floor(Math.random() * 20000) + 2000;
+
+    let data;
+    try {
+      data = await schema.findOne({
+        userId: interaction.user.id,
       });
-    else
-      return interaction.reply({
-        embeds: [
-          new EmbedBuilder().setDescription(
-            `You have claimed **${addMoney.amount}** 💷 as your weekly credit & now you have **${addMoney.after}** 💷. But you will lose your balance if you do not vote for this bot 😂 Just kidding.`
-          ),
-        ],
+
+      if (!data) {
+        data = await schema.create({
+          userId: interaction.user.id,
+          guildId: interaction.guild.id,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+      await interaction.reply({
+        content: "There was an error while executing this command...",
+        ephemeral: true,
       });
+    }
+
+    let timeout = 604800000;
+
+    if (timeout - (Date.now() - data.weeklyTimeout) > 0) {
+      let timeLeft = ms(timeout - (Date.now() - data.weeklyTimeout));
+
+      await interaction.reply({
+        content: `You are on cooldown, please wait for more **${timeLeft}** to use this command again.`,
+      });
+    } else {
+      data.weeklyTimeout = Date.now();
+      data.wallet += amount * 1;
+      await data.save();
+
+      const weeklyEmbed = new EmbedBuilder()
+        .setColor("#0155b6")
+        .setDescription(
+          `You recieved a weekly reward of **:coin: ${amount.toLocaleString()}**`
+        );
+
+      await interaction.reply({
+        embeds: [weeklyEmbed],
+      });
+    }
   },
 };

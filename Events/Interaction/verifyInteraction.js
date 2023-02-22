@@ -10,7 +10,7 @@ const {
   ModalBuilder,
 } = require("discord.js");
 const { default: mongoose } = require("mongoose");
-const roleSchema = require("../../schemas/verifyRoleId");
+const roleSchema = require("../../Schemas/verifyRoleID");
 
 const randomString = require("randomized-string");
 
