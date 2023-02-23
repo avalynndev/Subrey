@@ -4,10 +4,88 @@ const { YtDlpPlugin } = require("@distube/yt-dlp");
 const { SpotifyPlugin } = require("@distube/spotify");
 const { SoundCloudPlugin } = require("@distube/soundcloud");
 require("dotenv").config();
+const SelectedTheme = require("dbd-dark-dashboard");
+
+const config = require(`${__dirname}/config.json`);
+
+(async () => {
+  let DBD = require("discord-dashboard");
+  await DBD.useLicense(config.dbd_license);
+  DBD.Dashboard = DBD.UpdatedClass();
+
+  const Dashboard = new DBD.Dashboard({
+    port: config.port,
+    client: {
+      id: config.client.id,
+      secret: config.client.secret,
+    },
+    redirectUri: `http://localhost${
+      config.port !== 80 ? `:${config.port}` : ""
+    }/discord/callback`,
+    domain: `http://localhost${config.port !== 80 ? `:${config.port}` : ""}`,
+    settings: [],
+    bot: client,
+    theme: SelectedTheme({
+      information: {
+        createdBy: "iMidnight",
+        websiteTitle: "iMidnight",
+        websiteName: "iMidnight",
+        websiteUrl: "http://mydbd.xyz",
+        dashboardUrl: `http://localhost${
+          config.port !== 80 ? `:${config.port}` : ""
+        }/`,
+        supporteMail: "support@imidnight.ml",
+        supportServer: "https://discord.gg/yYq4UgRRzz",
+        imageFavicon: "https://www.imidnight.ml/assets/img/logo-circular.png",
+        iconURL: "https://www.imidnight.ml/assets/img/logo-circular.png",
+        pageBackGround: "linear-gradient(#2CA8FF, #155b8d)",
+        loggedIn: "Successfully signed in.",
+        mainColor: "#2CA8FF",
+        subColor: "#ebdbdb",
+      },
+      index: {
+        card: {
+          category: "iMidnight's Panel - The center of everything",
+          title: `Welcome to the iMidnight discord where you can control the core features to the bot.`,
+          image: "https://i.imgur.com/axnP93g.png",
+          footer: "Footer",
+        },
+        information: {
+          category: "Category",
+          title: "Information",
+          description: `This bot and panel is currently a work in progress so contact me if you find any issues on discord.`,
+          footer: "Footer",
+        },
+        feeds: {
+          category: "Category",
+          title: "Information",
+          description: `This bot and panel is currently a work in progress so contact me if you find any issues on discord.`,
+          footer: "Footer",
+        },
+      },
+      commands: [
+        {
+          category: "Starting Up",
+          subTitle: "All helpful commands",
+          aliasesDisabled: false,
+          list: [
+            {
+              commandName: "bug",
+              commandUsage: ";bug <bug>",
+              commandDescription: "Report a bug to the developers of Wooar.",
+              commandAlias: "No aliases",
+            },
+          ],
+        },
+      ],
+    }),
+  });
+  Dashboard.init();
+})();
 
 // Env Defines //
-client_id = process.env.client_id;
-client_secret = process.env.client_secret;
+spotify_id = process.env.spotify_id;
+spotify_secret = process.env.spotify_secret;
 databaseuri = process.env.DatabaseURL;
 token = process.env.TOKEN;
 
@@ -25,8 +103,8 @@ let spotifyoptions = {
   parallel: true,
   emitEventsAfterFetching: true,
   api: {
-    clientId: client_id,
-    clientSecret: client_secret,
+    clientId: spotify_id,
+    clientSecret: spotify_secret,
   },
 };
 client.distube = new DisTube(client, {
