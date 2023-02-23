@@ -1,20 +1,20 @@
 const {
-    ChatInputCommandInteraction,
-    SlashCommandBuilder,
-    EmbedBuilder,
-  } = require("discord.js");
-  const ms = require("ms");
-  const schema = require("../../../Schemas/currencySchema");
-  
-  module.exports = {
-    subCommand: "eco.search",
-    /**
-     *
-     * @param {ChatInputCommandInteraction} interaction
-     *
-     */
-    async execute(interaction, client) {
-        let searchLocation = interaction.options.getString("search_location");
+  ChatInputCommandInteraction,
+  SlashCommandBuilder,
+  EmbedBuilder,
+} = require("discord.js");
+const ms = require("ms");
+const schema = require("../../../Schemas/currencySchema");
+
+module.exports = {
+  subCommand: "eco.search",
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   *
+   */
+  async execute(interaction, client) {
+    let searchLocation = interaction.options.getString("search_location");
     let amount = Math.floor(Math.random() * 1000) + 100;
 
     let data;
@@ -60,6 +60,5 @@ const {
         embeds: [searchEmbed],
       });
     }
-    },
-  };
-  
+  },
+};

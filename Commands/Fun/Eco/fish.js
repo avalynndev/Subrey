@@ -1,20 +1,20 @@
 const {
-    ChatInputCommandInteraction,
-    SlashCommandBuilder,
-    EmbedBuilder,
-  } = require("discord.js");
-  const ms = require("ms");
-  const schema = require("../../../Schemas/currencySchema");
-  
-  module.exports = {
-    subCommand: "eco.fish",
-    /**
-     *
-     * @param {ChatInputCommandInteraction} interaction
-     *
-     */
-    async execute(interaction, client) {
-        let fishAmount = Math.floor(Math.random() * 20) + 1;
+  ChatInputCommandInteraction,
+  SlashCommandBuilder,
+  EmbedBuilder,
+} = require("discord.js");
+const ms = require("ms");
+const schema = require("../../../Schemas/currencySchema");
+
+module.exports = {
+  subCommand: "eco.fish",
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   *
+   */
+  async execute(interaction, client) {
+    let fishAmount = Math.floor(Math.random() * 20) + 1;
     let amount = fishAmount * 100 * 1;
 
     let data;
@@ -60,6 +60,5 @@ const {
         embeds: [fishEmbed],
       });
     }
-    },
-  };
-  
+  },
+};

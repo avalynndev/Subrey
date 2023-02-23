@@ -1,12 +1,15 @@
-const {
-  Client,
-  Collection,
-  EmbedBuilder,
-} = require("discord.js");
+const { Client, Collection, EmbedBuilder } = require("discord.js");
 const { DisTube } = require("distube");
 const { YtDlpPlugin } = require("@distube/yt-dlp");
 const { SpotifyPlugin } = require("@distube/spotify");
 const { SoundCloudPlugin } = require("@distube/soundcloud");
+require("dotenv").config();
+
+// Env Defines //
+client_id = process.env.client_id;
+client_secret = process.env.client_secret;
+databaseuri = process.env.DatabaseURL;
+token = process.env.TOKEN;
 
 const client = new Client({
   intents: 32767,
@@ -22,8 +25,8 @@ let spotifyoptions = {
   parallel: true,
   emitEventsAfterFetching: true,
   api: {
-    clientId: "7343d7fc0efc4480a0db879a34600c08",
-    clientSecret: "0cb91c79b53b4c7b98a5c2a3b3936fc2",
+    clientId: client_id,
+    clientSecret: client_secret,
   },
 };
 client.distube = new DisTube(client, {
@@ -43,7 +46,7 @@ client.subCommands = new Collection();
 client.commands = new Collection();
 
 const { connect } = require("mongoose");
-connect("MONGO URI", {}).then(() => console.log("Database ✅"));
+connect(databaseuri, {}).then(() => console.log("Database ✅"));
 
 loadEvents(client);
 
@@ -137,4 +140,4 @@ client.distube
     })
   );
 
-client.login("BOT TOKEN");
+client.login(token);

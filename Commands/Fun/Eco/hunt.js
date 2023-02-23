@@ -1,20 +1,20 @@
 const {
-    ChatInputCommandInteraction,
-    SlashCommandBuilder,
-    EmbedBuilder,
-  } = require("discord.js");
-  const ms = require("ms");
-  const schema = require("../../../Schemas/currencySchema");
-  
-  module.exports = {
-    subCommand: "eco.hunt",
-    /**
-     *
-     * @param {ChatInputCommandInteraction} interaction
-     *
-     */
-    async execute(interaction, client) {
-        let amount = Math.floor(Math.random() * 1000) + 500;
+  ChatInputCommandInteraction,
+  SlashCommandBuilder,
+  EmbedBuilder,
+} = require("discord.js");
+const ms = require("ms");
+const schema = require("../../../Schemas/currencySchema");
+
+module.exports = {
+  subCommand: "eco.hunt",
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   *
+   */
+  async execute(interaction, client) {
+    let amount = Math.floor(Math.random() * 1000) + 500;
     let animals = [
       "Tiger",
       "Lion",
@@ -71,6 +71,5 @@ const {
         embeds: [huntEmbed],
       });
     }
-    },
-  };
-  
+  },
+};

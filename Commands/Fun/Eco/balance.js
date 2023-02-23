@@ -1,9 +1,5 @@
-const {
-  ChatInputCommandInteraction,
-  EmbedBuilder,
-} = require("discord.js");
+const { ChatInputCommandInteraction, EmbedBuilder } = require("discord.js");
 const schema = require("../../../Schemas/currencySchema");
-
 
 module.exports = {
   subCommand: "eco.balance",
@@ -51,8 +47,7 @@ module.exports = {
       embeds: [balanceEmbed],
     });
 
-
-/**    const embed = new EmbedBuilder()
+    /**    const embed = new EmbedBuilder()
       .setTitle(`Balance`)
       .setDescription(
         `User: <@${userBalance.user}>
@@ -62,6 +57,6 @@ Position: ${userBalance.position}`
       .setColor("Random")
       .setThumbnail(USER.displayAvatarURL())
       .setTimestamp();
-    interaction.reply({ embeds: [embed] });*/ 
+    interaction.reply({ embeds: [embed] });*/
   },
 };

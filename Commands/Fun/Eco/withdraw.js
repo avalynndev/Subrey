@@ -1,20 +1,20 @@
 const {
-    ChatInputCommandInteraction,
-    SlashCommandBuilder,
-    EmbedBuilder,
-  } = require("discord.js");
-  const ms = require("ms");
-  const schema = require("../../../Schemas/currencySchema");
-  
-  module.exports = {
-    subCommand: "eco.withdraw",
-    /**
-     *
-     * @param {ChatInputCommandInteraction} interaction
-     *
-     */
-    async execute(interaction, client) {
-        let withdrawAmount = interaction.options.getInteger("withdraw_amount");
+  ChatInputCommandInteraction,
+  SlashCommandBuilder,
+  EmbedBuilder,
+} = require("discord.js");
+const ms = require("ms");
+const schema = require("../../../Schemas/currencySchema");
+
+module.exports = {
+  subCommand: "eco.withdraw",
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   *
+   */
+  async execute(interaction, client) {
+    let withdrawAmount = interaction.options.getInteger("withdraw_amount");
 
     let data;
     try {
@@ -59,6 +59,5 @@ const {
         embeds: [withdrawEmbed],
       });
     }
-    },
-  };
-  
+  },
+};

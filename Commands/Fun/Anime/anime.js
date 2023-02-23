@@ -12,5 +12,5 @@ module.exports = {
     )
     .addSubcommand((options) =>
       options.setName("wink").setDescription("give a anime wink")
-    )  
+    ),
 };

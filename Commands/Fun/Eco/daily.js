@@ -6,7 +6,6 @@ const {
 const ms = require("ms");
 const schema = require("../../../Schemas/currencySchema");
 
-
 module.exports = {
   subCommand: "eco.daily",
   /**
@@ -61,4 +60,4 @@ module.exports = {
       });
     }
   },
-}
+};
