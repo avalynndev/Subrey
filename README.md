@@ -28,7 +28,7 @@
 
 ## 📦 Prerequisites
 
-- [Node.js](https://nodejs.org/en/) v16.0.0 or higher
+- [Node.js](https://nodejs.org/en/) v18.0.0 or higher
 - [Git](https://git-scm.com/downloads)
 - [MongoDB](https://www.mongodb.com)
 
