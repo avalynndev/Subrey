@@ -1,6 +1,5 @@
 const { Client, Collection, EmbedBuilder } = require("discord.js");
 const { DisTube } = require("distube");
-const { YtDlpPlugin } = require("@distube/yt-dlp");
 const { SpotifyPlugin } = require("@distube/spotify");
 const { SoundCloudPlugin } = require("@distube/soundcloud");
 require("dotenv").config();
@@ -218,11 +217,7 @@ client.distube = new DisTube(client, {
   emitNewSongOnly: true,
   leaveOnFinish: true,
   emitAddSongWhenCreatingQueue: false,
-  plugins: [
-    new YtDlpPlugin(),
-    new SpotifyPlugin(spotifyoptions),
-    new SoundCloudPlugin(),
-  ],
+  plugins: [new SpotifyPlugin(spotifyoptions), new SoundCloudPlugin()],
 });
 
 client.config = require("./config.json");
