@@ -3,7 +3,7 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
 } = require("discord.js");
-
+// i gave terminal options, run node index.js to start
 const { embedPages } = require("../../Handlers/pages");
 
 module.exports = {
@@ -52,9 +52,84 @@ module.exports = {
         ),
 
       new EmbedBuilder()
-        .setTitle("Page 1")
-        .setDescription("This is page 1")
-        .setColor("Blue"),
+        .setTitle("Moderation")
+        .setColor("#00ffb3")
+        .setThumbnail(client.user.displayAvatarURL())
+        .setAuthor({
+          name: interaction.user.tag,
+          iconURL: interaction.user.displayAvatarURL(),
+        })
+        .setFooter({
+          text: "Made With 💖 by Avalynn#4247",
+          iconURL:
+            "https://media2.giphy.com/media/UtKfCyc9fAzvcJc1Ie/giphy.gif",
+        })
+        .addFields(
+          {
+            name: "Moderation",
+            value:
+              "`/mod ban - Bans a user from this guild` \n`/mod kick - Kicks a user from this guild` \n`/mod setnick - Sets the nickname of a user`",
+          },
+          {
+            name: "Welcome and Leave",
+            value:
+              "",
+          },
+          { 
+            name: "Giveaway",
+            value: "`/giveaway create - Create a giveaway` \n`/giveaway manage - manage ongoing giveaways`",
+          },
+          { 
+            name: "Ticket",
+            value: "",
+          },
+          { 
+            name: "Verification",
+            value: "",
+          }
+        ),
+        new EmbedBuilder()
+        .setTitle("Fun")
+        .setColor("#00ffb3")
+        .setThumbnail(client.user.displayAvatarURL())
+        .setAuthor({
+          name: interaction.user.tag,
+          iconURL: interaction.user.displayAvatarURL(),
+        })
+        .setFooter({
+          text: "Made With 💖 by Avalynn#4247",
+          iconURL:
+            "https://media2.giphy.com/media/UtKfCyc9fAzvcJc1Ie/giphy.gif",
+        })
+        .addFields(
+          {
+            name: "Music",
+            value: "`/play - Plays the audio of a youtube link or search` \n`/pause - Pauses the audio` \n`/resume - Resumes the audio` \n`/stop - Stops the audio and clears the queue` \n`/queue - Shows the current queue` \n`/skip - Skips the currently playing track and plays the next one in queue` \n`/volume - Change the volume of the audio`",
+          },
+          {
+            name: "Games",
+            value: "`=====ADD GAMES HERE=====`"
+          }
+        ),
+        new EmbedBuilder()
+        .setTitle("Economy")
+        .setColor("#00ffb3")
+        .setThumbnail(client.user.displayAvatarURL())
+        .setAuthor({
+          name: interaction.user.tag,
+          iconURL: interaction.user.displayAvatarURL(),
+        })
+        .setFooter({
+          text: "Made With 💖 by Avalynn#4247",
+          iconURL:
+            "https://media2.giphy.com/media/UtKfCyc9fAzvcJc1Ie/giphy.gif",
+        })
+        .addFields(
+          {
+            name: "",
+            value: ""
+          }
+        ),
     ];
 
     await embedPages(interaction, embeds);

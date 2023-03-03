@@ -8,7 +8,7 @@ module.exports = {
     .addSubcommand((options) =>
       options
         .setName("ban")
-        .setDescription("reload your events")
+        .setDescription("ban a user")
         .addUserOption((option) =>
           option
             .setName("mention")
@@ -19,7 +19,7 @@ module.exports = {
     .addSubcommand((options) =>
       options
         .setName("kick")
-        .setDescription("reload your commands")
+        .setDescription("kick a user")
         .addUserOption((option) =>
           option
             .setName("mention")
