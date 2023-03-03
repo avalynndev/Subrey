@@ -4,8 +4,6 @@ const { SpotifyPlugin } = require("@distube/spotify");
 const { SoundCloudPlugin } = require("@distube/soundcloud");
 require("dotenv").config();
 
-const config = require("./config.json");
-
 // Env Defines //
 spotify_id = process.env.spotify_id;
 spotify_secret = process.env.spotify_secret;
