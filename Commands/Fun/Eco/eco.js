@@ -156,7 +156,7 @@ module.exports = {
     .addSubcommand((options) =>
       options
         .setName("balance")
-        .setDescription("check balance of others or yours")
+        .setDescription("check the balance of others or yourself")
         .addUserOption((option) =>
           option.setName("user").setDescription("user to get balance of")
         )
