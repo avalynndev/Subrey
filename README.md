@@ -47,4 +47,9 @@ npm install
 - Optionally edit `config.json` & `config.js`
 - Type `npm run start` to start the bot
 
-<br>
+
+## 🤝 Contributors
+
+<a href="https://github.com/bettercodehelp/Subrey/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=bettercodehelp/Subrey" />
+</a>
