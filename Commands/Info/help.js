@@ -67,13 +67,11 @@ module.exports = {
         .addFields(
           {
             name: "Moderation",
-            value:
-              "`/mod ban - Bans a user from this guild` \n`/mod kick - Kicks a user from this guild` \n`/mod setnick - Sets the nickname of a user`",
+            value: "`/mod ban - Bans a user from this guild` \n`/mod kick - Kicks a user from this guild` \n`/mod setnick - Sets the nickname of a user`",
           },
           {
             name: "Welcome and Leave",
-            value:
-              "",
+            value: "`/events welcome - Welcome a user when they join your server` \n`/events leave - Send a message when a user leaves your server`",
           },
           { 
             name: "Giveaway",
@@ -81,11 +79,11 @@ module.exports = {
           },
           { 
             name: "Ticket",
-            value: "",
+            value: "`/tickets setup - Set up a ticket system for your server` \n`/tickets delete - Remove the ticket system from your server` \n`/tickets`",
           },
           { 
             name: "Verification",
-            value: "",
+            value: "`/setup - Set up a verification system for your server` \n`/setrole - Set the verification role`",
           }
         ),
         new EmbedBuilder()
@@ -108,7 +106,11 @@ module.exports = {
           },
           {
             name: "Games",
-            value: "`=====ADD GAMES HERE=====`"
+            value: "`/games singleplayer - Play singleplayer games` \n`/games multiplayer - Play multiplayer games with your friends`",
+          },
+          {
+            name: "Anime",
+            value: "`/anime hug - Get a random anime hug gif` \n`/anime pat - Get a random anime pat gif` \n`/anime wink - Get a random anime wink gif`",
           }
         ),
         new EmbedBuilder()
@@ -126,8 +128,8 @@ module.exports = {
         })
         .addFields(
           {
-            name: "",
-            value: ""
+            name: "Economy",
+            value: "`/eco work - Work to get money` \n`/eco addcoins - Add coins to a user's wallet` \n`/eco deposit - Deposit coins into the bank` \n`/eco withdraw - Withdraw coins from you bank` \n `/eco search - Search for some coins` \n`/eco chopwood - Chop some wood in the forrest to get coins` \n`/eco fish - Catch some fish to get coins` \n`/eco hunt - Hunt some animals to get coins` \n`/eco weekly - Claim your weekly coins` \n`/eco daily - Claim your daily coins` \n`/eco beg - Beg for money` \n`/eco balance - Check the balance of yourself or anoter user`",
           }
         ),
     ];
