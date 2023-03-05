@@ -66,7 +66,6 @@ module.exports = {
     .addSubcommand((options) =>
       options.setName("gah").setDescription("get gah image")
     )
-    
     .addSubcommand((options) =>
       options.setName("paizuri").setDescription("get paizuri image")
     )
@@ -79,4 +78,4 @@ module.exports = {
     .addSubcommand((options) =>
       options.setName("yaoi").setDescription("get yaoi image")
     ),
-}
+};
