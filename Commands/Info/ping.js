@@ -5,7 +5,9 @@ const {
 } = require("discord.js");
 
 module.exports = {
-  subCommand: "info.ping",
+  data: new SlashCommandBuilder()
+      .setName("ping")
+      .setDescription("check your ping"),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction

@@ -2,12 +2,21 @@ const {
   ChatInputCommandInteraction,
   AttachmentBuilder,
   EmbedBuilder,
+  SlashCommandBuilder 
 } = require("discord.js");
 const { profileImage } = require("discord-arts");
-const User = require("../../../Schemas/User");
+const User = require("../../Schemas/User");
 
 module.exports = {
-  subCommand: "info.userinfo",
+  data: new SlashCommandBuilder()
+    .setName("userinfo")
+        .setDescription("gets the info of a user")
+        .addUserOption((option) =>
+          option
+            .setName("user")
+            .setDescription("the user you want to get the info of...")
+            .setRequired(true)
+    ),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
@@ -15,7 +24,7 @@ module.exports = {
    */
   async execute(interaction) {
     const target =
-      interaction.options.getMember("target") || interaction.member;
+      interaction.options.getMember("user") || interaction.member;
     const { user, presence, roles } = target;
     const formatter = new Intl.ListFormat("en-GB", {
       style: "narrow",
@@ -39,15 +48,15 @@ module.exports = {
       "🤹🏻‍♀️ *Custom*",
       "🏆 *Competing in*",
     ];
-    let userbelike;
+    let member;
 
     const guildId = target.guild.id;
     const userId = target.user.id;
 
-    userbelike = await User.findOne({ guildId, userId });
+    member = await User.findOne({ guildId, userId });
 
-    if (!userbelike) {
-      user = {
+    if (!member) {
+      member = {
         level: 1,
         xp: 0,
       };
@@ -67,15 +76,14 @@ module.exports = {
 
     let currentRank = allLevels.findIndex((lvl) => lvl.userId === userId) + 1;
 
-    await interaction.deferReply();
     const bufferImg = await profileImage(userId, {
       presenceStatus: `${target.presence.status}`,
       badgesFrame: true,
       rankData: {
-        currentXp: user.xp,
-        requiredXp: user.level * 100,
+        currentXp: member.xp,
+        requiredXp: member.level * 100,
         rank: currentRank,
-        level: user.level,
+        level: member.level,
       },
     });
     const imgAttachment = new AttachmentBuilder(bufferImg, "profile.png");
@@ -124,7 +132,7 @@ module.exports = {
       files: [imgAttachment],
       embeds: [
         new EmbedBuilder()
-          .setColor(user.hexAccentColor || "Random")
+          .setColor("#00ffb3")
           .setAuthor({
             name: user.tag,
             iconURL: `https://i.imgur.com/${

@@ -3,7 +3,7 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
 } = require("discord.js");
-// i gave terminal options, run node index.js to start
+
 const { embedPages } = require("../../Handlers/pages");
 
 module.exports = {
