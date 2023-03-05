@@ -1,8 +1,10 @@
 const {
   ChatInputCommandInteraction,
-  SlashCommandBuilder,
+  AttachmentBuilder,
   EmbedBuilder,
 } = require("discord.js");
+const { profileImage } = require("discord-arts");
+const User = require("../../../Schemas/User");
 
 module.exports = {
   subCommand: "info.userinfo",
@@ -37,6 +39,46 @@ module.exports = {
       "🤹🏻‍♀️ *Custom*",
       "🏆 *Competing in*",
     ];
+    let userbelike;
+
+    const guildId = target.guild.id;
+    const userId = target.user.id;
+
+    userbelike = await User.findOne({ guildId, userId });
+
+    if (!userbelike) {
+      user = {
+        level: 1,
+        xp: 0,
+      };
+    }
+
+    let allLevels = await User.find({ guildId: interaction.guild.id }).select(
+      "-_id userId level xp"
+    );
+
+    allLevels.sort((a, b) => {
+      if (a.level === b.level) {
+        return b.xp - a.xp;
+      } else {
+        return b.level - a.level;
+      }
+    });
+
+    let currentRank = allLevels.findIndex((lvl) => lvl.userId === userId) + 1;
+
+    await interaction.deferReply();
+    const bufferImg = await profileImage(userId, {
+      presenceStatus: `${target.presence.status}`,
+      badgesFrame: true,
+      rankData: {
+        currentXp: user.xp,
+        requiredXp: user.level * 100,
+        rank: currentRank,
+        level: user.level,
+      },
+    });
+    const imgAttachment = new AttachmentBuilder(bufferImg, "profile.png");
 
     const clientType = [
       { name: "desktop", text: "Computer", emoji: "💻" },
@@ -44,21 +86,6 @@ module.exports = {
       { name: "web", text: "Website", emoji: "🌍" },
       { name: "offline", text: "Offline", emoji: "💤" },
     ];
-
-    const badges = {
-      BugHunterLevel1: "<:BugHunter:1025778237432922212>",
-      BugHunterLevel2: "<:BugBuster:1025778236015259810>",
-      CertifiedModerator: "<:DiscordCertifiedModerator:1025778239001591818>",
-      HypeSquadOnlineHouse1: "<:HypesquadBravery:1025778246329061486>",
-      HypeSquadOnlineHouse2: "<:HypesquadBrilliance:1025778247616704532>",
-      HypeSquadOnlineHouse3: "<:HypesquadBalance:1025778245087543337>",
-      Hypesquad: "<:HypeSquadEventAttendee:1025778249642541167>",
-      Partner: "<:DiscordPartner:1025778240427671592>",
-      PremiumEarlySupporter: "<:EarlySupporter:1025778243825049650>",
-      Staff: "<:DiscordStaff:1025778241929232445>",
-      VerifiedBot: "<:VerifiedBot:1025804638135529532>",
-      VerifiedDeveloper: "<:VerifiedDeveloper:1025778251127341076>",
-    };
 
     const maxDisplayRoles = (roles, maxFieldLength = 1024) => {
       let totalLength = 0;
@@ -85,7 +112,6 @@ module.exports = {
       presence?.clientStatus instanceof Object
         ? Object.keys(presence.clientStatus)
         : "offline";
-    const userFlags = user.flags.toArray();
 
     const deviceFilter = clientType.filter((device) =>
       clientStatus.includes(device.name)
@@ -95,6 +121,7 @@ module.exports = {
       : deviceFilter;
 
     interaction.reply({
+      files: [imgAttachment],
       embeds: [
         new EmbedBuilder()
           .setColor(user.hexAccentColor || "Random")
@@ -143,14 +170,6 @@ module.exports = {
               }`,
             },
             {
-              name: `Badges (${userFlags.length})`,
-              value: userFlags.length
-                ? formatter.format(
-                    userFlags.map((flag) => `**${badges[flag]}**`)
-                  )
-                : "None",
-            },
-            {
               name: `Devices`,
               value: devices
                 .map((device) => `${device.emoji} ${device.text}`)
@@ -172,8 +191,7 @@ module.exports = {
                   : "No"
               }`,
               inline: true,
-            },
-            { name: "Banner", value: user.bannerURL() ? "** **" : "🎏 None" }
+            }
           ),
       ],
       ephemeral: true,

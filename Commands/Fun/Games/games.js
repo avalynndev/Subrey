@@ -29,7 +29,6 @@ module.exports = {
               { name: "Would-You-Rather", value: "wouldyourather" }
             )
         )
-        .setDMPermission(false)
     )
     .addSubcommand((options) =>
       options
@@ -52,6 +51,5 @@ module.exports = {
             .setDescription("*Choose your opponent for the game.")
             .setRequired(true)
         )
-        .setDMPermission(false)
     ),
 };

@@ -9,9 +9,8 @@ const { Connect4, RockPaperScissors, TicTacToe } = require("discord-gamecord");
 module.exports = {
   subCommand: "games.multiplayer",
   /**
-   *
+   * @param {Client} client
    * @param {ChatInputCommandInteraction} interaction
-   *
    */
   async execute(interaction) {
     const game = interaction.options.getString("game");

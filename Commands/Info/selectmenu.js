@@ -3,11 +3,9 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
   ActionRowBuilder,
-  SelectMenuBuilder,
+  StringSelectMenuBuilder,
   DiscordAPIError,
 } = require("discord.js");
-
-const { embedPages } = require("../../Handlers/pages");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -122,7 +120,7 @@ module.exports = {
 
     const componentsMenu = (select) => [
       new ActionRowBuilder().addComponents(
-        new SelectMenuBuilder()
+        new StringSelectMenuBuilder()
           .setCustomId("some")
           .setPlaceholder("Here")
           .setDisabled(select)

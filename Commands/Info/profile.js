@@ -1,16 +1,15 @@
 const { AttachmentBuilder, SlashCommandBuilder } = require("discord.js");
-const { Rank } = require("canvacord");
-
+const { profileImage } = require("discord-arts");
 const User = require("../../Schemas/User");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("rank")
+    .setName("profile")
     .setDescription("Get your or another member's rank")
     .addUserOption((option) =>
       option
-        .setName("member")
-        .setDescription("Target @member")
+        .setName("memeber")
+        .setDescription("Target @user")
         .setRequired(false)
     ),
   /**
@@ -50,21 +49,19 @@ module.exports = {
 
     let currentRank = allLevels.findIndex((lvl) => lvl.userId === userId) + 1;
 
-    const rank = new Rank()
-      .setAvatar(member.user.displayAvatarURL())
-      .setCurrentXP(user.xp)
-      .setLevel(user.level)
-      .setRank(currentRank)
-      .setRequiredXP(user.level * 100)
-      .setStatus(member.presence.status)
-      .setProgressBar("#FFFFFF", "COLOR")
-      .setUsername(member.user.username)
-      .setDiscriminator(member.user.discriminator);
-
-    rank.build().then((data) => {
-      interaction.reply({
-        files: [new AttachmentBuilder(data, { name: "rank.png" })],
-      });
+    await interaction.deferReply();
+    const bufferImg = await profileImage(userId, {
+      presenceStatus: `${member.presence.status}`,
+      badgesFrame: true,
+      rankData: {
+        currentXp: user.xp,
+        requiredXp: user.level * 100,
+        rank: currentRank,
+        level: user.level,
+      },
     });
+    const imgAttachment = new AttachmentBuilder(bufferImg, "profile.png");
+
+    interaction.followUp({ files: [imgAttachment] });
   },
 };
