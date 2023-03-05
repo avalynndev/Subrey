@@ -66,15 +66,7 @@ module.exports = {
     .addSubcommand((options) =>
       options.setName("gah").setDescription("get gah image")
     )
-    .addSubcommand((options) =>
-      options.setName("coffee").setDescription("get coffee image")
-    )
-    .addSubcommand((options) =>
-      options.setName("food").setDescription("get food image")
-    )
-    .addSubcommand((options) =>
-      options.setName("gah").setDescription("get gah image")
-    )
+    
     .addSubcommand((options) =>
       options.setName("paizuri").setDescription("get paizuri image")
     )
@@ -86,5 +78,5 @@ module.exports = {
     )
     .addSubcommand((options) =>
       options.setName("yaoi").setDescription("get yaoi image")
-    )
-};
+    ),
+}
