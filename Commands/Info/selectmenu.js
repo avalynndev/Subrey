@@ -4,7 +4,6 @@ const {
   EmbedBuilder,
   ActionRowBuilder,
   StringSelectMenuBuilder,
-  DiscordAPIError,
 } = require("discord.js");
 
 module.exports = {
@@ -18,28 +17,41 @@ module.exports = {
    */
   async execute(interaction, client) {
     const Menu = new EmbedBuilder()
-      .setTitle("Help Command")
-      .setColor("0x2F3136")
+      .setColor("#00ffb3")
+      .setThumbnail(client.user.displayAvatarURL())
+      .setAuthor({
+        name: interaction.user.tag,
+        iconURL: interaction.member.displayAvatarURL(),
+      })
+      .setFooter({
+        text: "Made With 💖 by Avalynn#4247",
+        iconURL: "https://media2.giphy.com/media/UtKfCyc9fAzvcJc1Ie/giphy.gif",
+      })
       .setDescription(
-        "Select an option to get the command list of. Only one option can be selected."
+        `
+  • Prefix of this bot is \`/\`
+  • Total commands: \`24\`
+  • [Get Subrey](https://discord.com/api/oauth2/authorize?client_id=973136576014057482&permissions=8&scope=bot%20applications.commands) | [Support Server](https://discord.gg/HHkuFTy4r4) 
+  `
       )
       .addFields(
         {
-          name: "<:file:1029384572439371846> Total Command Categories",
-          value: `<:reply:1029385036958547978>  11`,
+          name: "__Main__",
+          value:
+            "<a:tick:962971483443986472> Overview\n<a:about:969846747776028702> Information\n<:zzmod:961505960319406140> Moderation\n<:nsfw:963717747861241866> NSFW\n<:zzticket:961508372031627334> Ticket\n<a:zzgiveaway:961507514128695308> Giveaway\n<a:welcomee:975001204428005376> Welcomer",
           inline: true,
         },
         {
-          name: "<:slash:1029384574544912474> Total Slash Commands",
-          value: `<:reply:1029385036958547978> 201`,
+          name: "__Extras__",
+          value:
+            "<:zzutility:961505575374557214> Setups\n<a:zzmoney:961512215402393610> Economy\n<:youtube:974540617571004446> Notifications\n<:fun:963716831204491294> Minigames\n<a:filters:974295191877996584> Self Roles",
           inline: true,
         }
-      )
-      .setColor("0x2F3136");
+      );
 
     const Moderation = new EmbedBuilder()
       .setTitle("Command List For Moderation")
-      .setColor("0x2F3136")
+      .setColor("2F3136")
       .setDescription("```mod setnick, mod ban, mod kick```")
       .addFields({
         name: "<:star:1029384576549798019> Command Count",
@@ -50,9 +62,10 @@ module.exports = {
         text: `${interaction.user.username}`,
         iconURL: `${interaction.user.displayAvatarURL({ dynamic: true })}`,
       });
+
     const Config = new EmbedBuilder()
       .setTitle("Command List For Config")
-      .setColor("0x2F3136")
+      .setColor("2F3136")
       .setDescription(
         "```events welcome, events leave, wordreact, auto-role```"
       )
@@ -67,7 +80,7 @@ module.exports = {
       });
     const Util = new EmbedBuilder()
       .setTitle("Command List For Util")
-      .setColor("0x2F3136")
+      .setColor("2F3136")
       .setDescription("```util quotes, util youtube, util qrcode, util calc```")
       .addFields({
         name: "<:star:1029384576549798019> Command Count",
@@ -80,7 +93,7 @@ module.exports = {
       });
     const Fun = new EmbedBuilder()
       .setTitle("Command List For Fun")
-      .setColor("0x2F3136")
+      .setColor("2F3136")
       .setDescription("```x```")
       .addFields({
         name: "<:star:1029384576549798019> Command Count",
@@ -93,7 +106,7 @@ module.exports = {
       });
     const Giveaway = new EmbedBuilder()
       .setTitle("Command List For Giveaway")
-      .setColor("0x2F3136")
+      .setColor("2F3136")
       .setDescription("```giveaway create, giveaway manage ```")
       .addFields({
         name: "<:star:1029384576549798019> Command Count",
@@ -106,7 +119,7 @@ module.exports = {
       });
     const Ticket = new EmbedBuilder()
       .setTitle("Command List For Ticket")
-      .setColor("0x2F3136")
+      .setColor("2F3136")
       .setDescription("```tickets setup, tickets delete ```")
       .addFields({
         name: "<:star:1029384576549798019> Command Count",

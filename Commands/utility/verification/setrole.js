@@ -1,25 +1,10 @@
-const {
-  SlashCommandBuilder,
-  CommandInteraction,
-  PermissionFlagsBits,
-  CommandInteractionOptionResolver,
-} = require("discord.js");
+const { CommandInteraction } = require("discord.js");
 
-const roleSchema = require("../../Schemas/verifyRoleID");
+const roleSchema = require("../../../Schemas/verifyRoleID");
 const mongoose = require("mongoose");
 
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName("setrole")
-    .setDescription("Sets the verification Role!")
-    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
-    .addRoleOption((option) =>
-      option
-        .setName("role")
-        .setDescription("Role to set the verification role to.")
-        .setRequired(true)
-    ),
-
+  subCommand: "verification.setrole",
   /**
    *
    * @param {CommandInteraction} interaction

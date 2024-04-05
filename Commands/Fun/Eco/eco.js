@@ -3,40 +3,29 @@ const { PermissionFlagsBits, SlashCommandBuilder } = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("eco")
-    .setDescription("economy related commands")
+    .setDescription("Economy related commands")
+
+    // Work command
     .addSubcommand((options) =>
       options
         .setName("work")
-        .setDescription("work to get money")
+        .setDescription("Work to get money")
         .addStringOption((option) =>
           option
             .setName("job")
             .setDescription("Select a job")
             .addChoices(
-              {
-                name: "Software Developer",
-                value: "Software Developer",
-              },
-              {
-                name: "Data Scientist",
-                value: "Data Scientist",
-              },
-              {
-                name: "Doctor",
-                value: "doctor",
-              },
-              {
-                name: "Waiter",
-                value: "Waiter",
-              },
-              {
-                name: "Painter",
-                value: "Painter",
-              }
+              { name: "Software Developer", value: "Software Developer" },
+              { name: "Data Scientist", value: "Data Scientist" },
+              { name: "Doctor", value: "doctor" },
+              { name: "Waiter", value: "Waiter" },
+              { name: "Painter", value: "Painter" }
             )
             .setRequired(true)
         )
     )
+
+    // Add coins command
     .addSubcommand((options) =>
       options
         .setName("addcoins")
@@ -54,6 +43,8 @@ module.exports = {
             .setRequired(true)
         )
     )
+
+    // Deposit command
     .addSubcommand((options) =>
       options
         .setName("deposit")
@@ -65,6 +56,8 @@ module.exports = {
             .setRequired(true)
         )
     )
+
+    // Withdraw command
     .addSubcommand((options) =>
       options
         .setName("withdraw")
@@ -76,89 +69,63 @@ module.exports = {
             .setRequired(true)
         )
     )
+
+    // Search command
     .addSubcommand((options) =>
       options
         .setName("search")
-        .setDescription("search for some coins")
+        .setDescription("Search for some coins")
         .addStringOption((option) =>
           option
             .setName("search_location")
-            .setDescription("select a location to search")
+            .setDescription("Select a location to search")
             .addChoices(
-              {
-                name: "Car",
-                value: "Car",
-              },
-              {
-                name: "Bike",
-                value: "Bike",
-              },
-              {
-                name: "Wallet",
-                value: "Wallet",
-              },
-              {
-                name: "Pocket",
-                value: "Pocket",
-              },
-              {
-                name: "Computer",
-                value: "Computer",
-              },
-              {
-                name: "Keyboard",
-                value: "Keyboard",
-              },
-              {
-                name: "Laptop",
-                value: "Laptop",
-              },
-              {
-                name: "Desk",
-                value: "Desk",
-              },
-              {
-                name: "Shoe",
-                value: "Shoe",
-              },
-              {
-                name: "Sock",
-                value: "Sock",
-              }
+              { name: "Car", value: "Car" },
+              { name: "Bike", value: "Bike" },
+              { name: "Wallet", value: "Wallet" },
+              { name: "Pocket", value: "Pocket" },
+              { name: "Computer", value: "Computer" },
+              { name: "Keyboard", value: "Keyboard" },
+              { name: "Laptop", value: "Laptop" },
+              { name: "Desk", value: "Desk" },
+              { name: "Shoe", value: "Shoe" },
+              { name: "Sock", value: "Sock" }
             )
             .setRequired(true)
         )
     )
+
+    // Other commands
     .addSubcommand((options) =>
       options
         .setName("chopwood")
-        .setDescription("chop wood in the forest and get some coins")
+        .setDescription("Chop wood in the forest and get some coins")
     )
     .addSubcommand((options) =>
       options
         .setName("fish")
-        .setDescription("catch some fish and get some coins")
+        .setDescription("Catch some fish and get some coins")
     )
     .addSubcommand((options) =>
       options
         .setName("hunt")
-        .setDescription("hunt some animals and get some coins")
+        .setDescription("Hunt some animals and get some coins")
     )
     .addSubcommand((options) =>
-      options.setName("weekly").setDescription("get a weekly amount")
+      options.setName("weekly").setDescription("Get a weekly amount")
     )
     .addSubcommand((options) =>
-      options.setName("daily").setDescription("claim your daily money")
+      options.setName("daily").setDescription("Claim your daily money")
     )
     .addSubcommand((options) =>
-      options.setName("beg").setDescription("beg to get some money (maybe)")
+      options.setName("beg").setDescription("Beg to get some money (maybe)")
     )
     .addSubcommand((options) =>
       options
         .setName("balance")
-        .setDescription("check the balance of others or yourself")
+        .setDescription("Check the balance of others or yourself")
         .addUserOption((option) =>
-          option.setName("user").setDescription("user to get balance of")
+          option.setName("user").setDescription("User to get balance of")
         )
     ),
 };

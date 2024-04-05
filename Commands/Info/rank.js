@@ -13,11 +13,6 @@ module.exports = {
         .setDescription("Target @member")
         .setRequired(false)
     ),
-  /**
-   *
-   * @param {ChatInputCommandInteraction} interaction
-   *
-   */
   async execute(interaction) {
     const member =
       interaction.options.getMember("member") || interaction.member;
@@ -50,7 +45,16 @@ module.exports = {
 
     let currentRank = allLevels.findIndex((lvl) => lvl.userId === userId) + 1;
 
+    let discrim;
+    const discriminator = member.user.discriminator;
+    if (discriminator == "0") {
+      discrim = "0000";
+    } else {
+      discrim = `${discriminator}`;
+    }
+
     const rank = new Rank()
+      .setDiscriminator(discrim)
       .setAvatar(member.user.displayAvatarURL())
       .setCurrentXP(user.xp)
       .setLevel(user.level)
@@ -58,8 +62,7 @@ module.exports = {
       .setRequiredXP(user.level * 100)
       .setStatus(member.presence.status)
       .setProgressBar("#FFFFFF", "COLOR")
-      .setUsername(member.user.username)
-      .setDiscriminator(member.user.discriminator);
+      .setUsername(member.user.username); // Set discriminator here
 
     rank.build().then((data) => {
       interaction.reply({

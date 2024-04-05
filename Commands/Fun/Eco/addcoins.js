@@ -8,6 +8,7 @@ const ms = require("ms");
 const schema = require("../../../Schemas/currencySchema");
 
 module.exports = {
+  developer: true,
   subCommand: "eco.addcoins",
   /**
    *

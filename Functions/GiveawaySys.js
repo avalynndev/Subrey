@@ -1,6 +1,6 @@
 const { Client } = require("discord.js");
 const DB = require("../Schemas/GiveawayDB");
-const { endGiveaway } = require("../Utils/GiveawayFunctions");
+const { endGiveaway } = require("../Util/GiveawayFunctions");
 
 /**
  * @param {Client} client

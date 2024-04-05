@@ -1,9 +1,4 @@
-const {
-  Client,
-  ChatInputCommandInteraction,
-  SlashCommandBuilder,
-  EmbedBuilder,
-} = require("discord.js");
+const { ChatInputCommandInteraction, EmbedBuilder } = require("discord.js");
 const { Connect4, RockPaperScissors, TicTacToe } = require("discord-gamecord");
 
 module.exports = {

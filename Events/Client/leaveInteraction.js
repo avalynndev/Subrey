@@ -15,6 +15,7 @@ module.exports = {
    */
   async execute(interaction, client) {
     const { user } = interaction;
+    if (user.bot) return;
     const leaveChannel = await leaveSchema.findOne({
       guildId: interaction.guild.id,
     });
@@ -35,7 +36,7 @@ module.exports = {
         .send({
           embeds: [
             new EmbedBuilder()
-              .setTitle(`New Member Left`)
+              .setTitle(`Member Left`)
               .setDescription(
                 `<@${user.id}> Left the server. We will miss you, we hope we see you again.`
               )
