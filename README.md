@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/bettercodeui/Subrey"><img src="subrey.png" height="200" alt="Subrey Logo"></a>
+  <a href="https://github.com/InfiniteDevs/Subrey"><img src="subrey.png" height="200" alt="Subrey Logo"></a>
   <br>
   Subrey
   <br>
@@ -22,7 +22,7 @@
 
 ## 🔗 Resource Links
 
-- 🤖 Official Bot: [Invite Here]() 
+- 🤖 Official Bot: [Invite Here]()
 - 🤝 Support Server: [Join Here](https://dsc.gg/matrixbyte)
 - 📂 Documentation URL: [Visit Here]() (COMING SOON)
 
@@ -37,19 +37,17 @@
 - Open the terminal and run the following commands
 
 ```
-git clone https://github.com/bettercodeui/Subrey.git
+git clone https://github.com/InfiniteDevs/Subrey.git
 cd Subrey
 npm install
 ```
 
 - Wait for all the dependencies to be installed
 - Rename `.env.example` to `.env` and fill the values
-- Optionally edit `config.json` & `config.js`
-- Type `npm run start` to start the bot
-
+- Type `node index.js` to start the bot
 
 ## 🤝 Contributors
 
-<a href="https://github.com/bettercodehelp/Subrey/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=bettercodehelp/Subrey" />
+<a href="https://github.com/InfiniteDevs/Subrey/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=InfiniteDevs/Subrey" />
 </a>

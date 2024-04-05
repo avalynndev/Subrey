@@ -35,7 +35,6 @@ client.distube = new DisTube(client, {
   plugins: [new SpotifyPlugin(spotifyoptions), new SoundCloudPlugin()],
 });
 
-client.config = require("./config.json");
 client.events = new Collection();
 client.subCommands = new Collection();
 client.commands = new Collection();
